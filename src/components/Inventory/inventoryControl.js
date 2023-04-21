@@ -14,7 +14,7 @@ export default class inventoryControl extends React.Component {
     super(props);
     this.state = {
       showForm: false,
-      mainInventoryList: [{Name: 'Super Jitter Death Inducer', Origin: 'Nicaragua', Price: 0.01, Roast: 'Blonde', Remaining: 130, Roast: "Blonde", id:"f8e022a6-35a8-4c23-9d84-54ff9711a657"}],
+      mainInventoryList: [{Name: 'Super Jitter Death Inducer', Origin: 'Nicaragua', Price: 235.75, Roast: 'Blonde', Remaining: 130, id:"f8e022a6-35a8-4c23-9d84-54ff9711a657"}],
       requestedDetails: null
     }
   }
@@ -39,6 +39,20 @@ export default class inventoryControl extends React.Component {
     this.setState({requestedDetails: selectedItem, showForm: false})
   }
 
+  handleUpdateRequest = (qty) => {
+    let updatedItem = {...this.state.requestedDetails};
+    if(updatedItem.Remaining <= qty){
+      updatedItem.Remaining = 0;
+    } else {
+    updatedItem.Remaining -= qty;
+    }
+    this.setState(prevState => ({
+      mainInventoryList: prevState.mainInventoryList.filter(item => item.id !== this.state.requestedDetails.id)
+      .concat(updatedItem),
+      requestedDetails: updatedItem
+    }))
+  }
+
   render() {
     return(
       <Container>
@@ -50,7 +64,7 @@ export default class inventoryControl extends React.Component {
             {this.state.showForm ? 
               <ItemManagement onSwapRequest={this.handleMiddleColumnSwap} onAddNewInventory = {this.handleAddNewInventory}/> 
               :
-              <ItemDetails onSwapRequest={this.handleMiddleColumnSwap} requestedDetails={this.state.requestedDetails}/>} 
+              <ItemDetails onSwapRequest={this.handleMiddleColumnSwap} onUpdateRequest={this.handleUpdateRequest} requestedDetails={this.state.requestedDetails}/>} 
           </Col>
           <Col>
             <h1>placeholder filters</h1>

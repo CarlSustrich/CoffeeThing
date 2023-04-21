@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
@@ -34,24 +36,30 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function itemDetails(props) {
   const item = props.requestedDetails
+  const update= props.onUpdateRequest
   if(item != null) {
     return (
       <Container>
         <h1>Item Details:</h1>
-        <ListGroup as='ul'>
-          <ListGroup.Item as='li'>{item.Name}</ListGroup.Item>
-          <ListGroup.Item as='li'>{item.Origin}</ListGroup.Item>
-          <ListGroup.Item as='li'>{item.Price}</ListGroup.Item>
-          <ListGroup.Item as='li'>{item.Roast}</ListGroup.Item>
-          <ListGroup.Item as='li'>{item.Remaining}lbs</ListGroup.Item>
-        </ListGroup>
+          {item.Name}<br />
+          {item.Origin}<br />
+          ${item.Price}<br />
+          {item.Roast}<br />
+          {item.Remaining}lbs
+          <br /><br />
+          <DropdownButton id="dropdown-basic-button" title="Manage Qty Remaining">
+            <Dropdown.Item onClick={()=>update(1)}>Sold 1lb</Dropdown.Item>
+            <Dropdown.Item onClick={()=>update(5)}>Sold 5lb</Dropdown.Item>
+            <Dropdown.Item onClick={()=>update(130)}>Sold Out</Dropdown.Item>
+          </DropdownButton>
+          <br /><br />
         <Button onClick={props.onSwapRequest}>Add Inventory Item</Button>
       </Container>
     )
   } else {
     return (
     <>
-      <h1>Heres some details I guess</h1>
+      <h1>Select a Product to view its Details</h1>
       <Button onClick={props.onSwapRequest}>Add Inventory Item</Button>
     </>
     )
