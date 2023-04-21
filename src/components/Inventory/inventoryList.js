@@ -5,10 +5,11 @@ export default function inventoryList(props) {
   return (
     <>
       <h1>Inventory List</h1>    
-      {console.log(props)}
       {props.inventoryList.map((element)=> 
         <Item 
+          detailsRequested = {props.onDetailsRequest}
           Name = {element.Name}
+          Remaining = {element.Remaining}
           id={element.id}
           key={element.id}
         />

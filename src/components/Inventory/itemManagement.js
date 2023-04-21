@@ -13,6 +13,7 @@ export default function itemManagement(props) {
       Origin: data.beanOrigin.value,
       Price: +data.beanPrice.value,
       Roast: data.beanRoast.value,
+      Remaining: 130,
       id: v4()
     })
   }
