@@ -1,6 +1,7 @@
 import React from 'react';
 import coffeeBarPic from './../../img/coffee-bar.jpeg';
 
+
 export default class headerControl extends React.Component {
 
   constructor(props){
