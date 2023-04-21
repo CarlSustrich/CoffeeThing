@@ -14,7 +14,7 @@ export default class inventoryControl extends React.Component {
     super(props);
     this.state = {
       showForm: false,
-      mainInventoryList: [],
+      mainInventoryList: [{Name: 'Super Jitter Death Inducer', Origin: 'Nicaragua', Price: 0.01, Roast: 'Blonde', Remaining: 130, Roast: "Blonde", id:"f8e022a6-35a8-4c23-9d84-54ff9711a657"}],
       requestedDetails: null
     }
   }
@@ -34,6 +34,7 @@ export default class inventoryControl extends React.Component {
   }
 
   handleDetailsRequest = (id) => {
+    console.log(this.state.requestedDetails)
     const selectedItem = this.state.mainInventoryList.filter(item => item.id === id)[0]
     this.setState({requestedDetails: selectedItem, showForm: false})
   }
