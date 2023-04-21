@@ -16,11 +16,11 @@ export default function itemManagement(props) {
       id: v4()
     })
   }
-
+ 
   return (
     <>
-      <Form>
-        <Form.Group className="mb-3" controlId='beanName' onSubmit={handleNewInventoryFormSubmission}>
+      <form onSubmit={handleNewInventoryFormSubmission}>
+        <Form.Group className="mb-3" controlId='beanName' role='form'>
           <Form.Label>Bean Name</Form.Label>
           <Form.Control type="text" placeholder='ex Super Jitter Death Inducer' />
         </Form.Group>
@@ -30,7 +30,7 @@ export default function itemManagement(props) {
         </Form.Group>
         <Form.Group className="mb-3" controlId='beanPrice'>
           <Form.Label>Price</Form.Label>
-          <Form.Control type="number" placeholder='ex 225.75' />
+          <Form.Control type="number" placeholder='ex 225.75' step='.01'/>
           <Form.Text className="text-muted">
             Please enter price per bag
           </Form.Text>
@@ -42,9 +42,9 @@ export default function itemManagement(props) {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form>
-      <br />
-      <br />
+        <br />
+        <br />
+      </form>
       <Button onClick={props.onSwapRequest}>Back to Details</Button>
     </>
   )

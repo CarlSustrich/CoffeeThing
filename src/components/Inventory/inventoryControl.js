@@ -30,6 +30,7 @@ export default class inventoryControl extends React.Component {
       mainInventoryList: ([...beforeStateChangeState.mainInventoryList, newGenericObjectRepresentingAnInventoryItem])
       //is just declaring a new variable.concat new item faster here? probably, ... iterates through whole list i think?
     }))
+    console.log(this.state);
   }
 
   render() {
@@ -37,7 +38,7 @@ export default class inventoryControl extends React.Component {
       <Container>
         <Row>
           <Col>
-            <InventoryList />
+            <InventoryList inventoryList={this.state.mainInventoryList}/>
           </Col>
           <Col>
             {this.state.showForm ? 
