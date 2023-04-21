@@ -19,7 +19,8 @@ export default class headerControl extends React.Component {
       backgroundPosition: 'center',
       height: '30vh',
       width: '100vw',
-      textAlign: 'center'
+      textAlign: 'center',
+      padding: '25px'
     }
     return(
       <div style={headerStyles}>
