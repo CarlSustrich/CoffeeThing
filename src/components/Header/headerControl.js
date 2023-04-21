@@ -16,7 +16,7 @@ export default class headerControl extends React.Component {
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
-      30000
+      1000
     );
   }
 
@@ -26,7 +26,7 @@ export default class headerControl extends React.Component {
 
   tick() {
     this.setState({
-      currentTime: new Date()
+      date: new Date()
     });
   }
 
@@ -60,7 +60,7 @@ export default class headerControl extends React.Component {
     return(
       <Container style={headerStyles}>
         <h1 style={h1Style}>ErMaGerd A Cerfee Sherp</h1>
-        <h3 style={h3Styles}>Central Park, NY <br/>It's our {this.state.currentTime.toLocaleTimeString('en-US', {timeZone: "America/New_York", hour: '2-digit', minute: '2-digit'})}<br/>Say Hi!</h3>
+        <h3 style={h3Styles}>{this.state.currentTime.toLocaleTimeString()}</h3>
       </Container>
 
     )

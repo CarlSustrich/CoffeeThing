@@ -3,23 +3,44 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CloseButton from 'react-bootstrap/CloseButton';
+import ListGroup from 'react-bootstrap/ListGroup';
+
+
+// export default function itemDetails(props) {
+//   const item = props.requestedDetails
+//   if(item != null) {
+//     return (
+//       <>
+//         <h1>Item Details:</h1>
+//         <ul>
+//           <li>{item.Name}</li>
+//           <li>{item.Origin}</li>
+//           <li>{item.Price}</li>
+//           <li>{item.Roast}</li>
+//           <li>{item.Remaining}lbs</li>
+//         </ul>
+//         <Button onClick={props.onSwapRequest}>Add Inventory Item</Button>
+//       </>
+//     )
+//   } else {
+//     return (
+//     <>
+//       <h1>Heres some details I guess</h1>
+//       <Button onClick={props.onSwapRequest}>Add Inventory Item</Button>
+//     </>
+//     )
+//   }
+  
+// }
 
 
 export default function itemDetails(props) {
   const item = props.requestedDetails
   const update= props.onUpdateRequest
-  const closeButtonStyle = {
-    position: 'relative',
-    left: '30%'
-    // display: 'inline',
-    // paddingLeft: '100px'
-  }
   if(item != null) {
     return (
       <Container>
-        
-        <h1>Item Details:<CloseButton style={closeButtonStyle} onClick={props.onCloseDetailsRequest}></CloseButton></h1>
+        <h1>Item Details:</h1>
           {item.Name}<br />
           {item.Origin}<br />
           ${item.Price}<br />
