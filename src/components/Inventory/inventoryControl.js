@@ -24,6 +24,14 @@ export default class inventoryControl extends React.Component {
     }));
   }
 
+  handleAddNewInventory = (newGenericObjectRepresentingAnInventoryItem) => {
+    this.setState(beforeStateChangeState => ({
+      showForm: !beforeStateChangeState.showForm,
+      mainInventoryList: ([...beforeStateChangeState.mainInventoryList, newGenericObjectRepresentingAnInventoryItem])
+      //is just declaring a new variable.concat new item faster here? probably, ... iterates through whole list i think?
+    }))
+  }
+
   render() {
     return(
       <Container>
@@ -32,7 +40,10 @@ export default class inventoryControl extends React.Component {
             <InventoryList />
           </Col>
           <Col>
-            {this.state.showForm ? <ItemManagement onSwapRequest={this.handleMiddleColumnSwap} /> : <ItemDetails onSwapRequest={this.handleMiddleColumnSwap} />} 
+            {this.state.showForm ? 
+              <ItemManagement onSwapRequest={this.handleMiddleColumnSwap} onAddNewInventory = {this.handleAddNewInventory}/> 
+              :
+              <ItemDetails onSwapRequest={this.handleMiddleColumnSwap} />} 
           </Col>
           <Col>
             <h1>placeholder filters</h1>

@@ -1,12 +1,26 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {v4} from 'uuid';
 
 export default function itemManagement(props) {
+
+  function handleNewInventoryFormSubmission(formReturnDataEvent) {
+    formReturnDataEvent.preventDefault();
+    const data = formReturnDataEvent.target
+    props.onAddNewInventory({
+      Name: data.beanName.value,
+      Origin: data.beanOrigin.value,
+      Price: +data.beanPrice.value,
+      Roast: data.beanRoast.value,
+      id: v4()
+    })
+  }
+
   return (
     <>
       <Form>
-        <Form.Group className="mb-3" controlId='beanName'>
+        <Form.Group className="mb-3" controlId='beanName' onSubmit={handleNewInventoryFormSubmission}>
           <Form.Label>Bean Name</Form.Label>
           <Form.Control type="text" placeholder='ex Super Jitter Death Inducer' />
         </Form.Group>
