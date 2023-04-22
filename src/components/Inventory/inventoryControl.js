@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemManagement from '../Inventory/itemManagement';
 import ItemDetails from './itemDetails';
 import InventoryList from './inventoryList';
+import FilterList from "./filterList"
 
 export default class inventoryControl extends React.Component {
 
@@ -18,9 +19,6 @@ export default class inventoryControl extends React.Component {
       {Name: 'Decaf Is For Weenies', Origin: 'Murica', Price: 0.99, Roast: 'Gross', Remaining: 130, id:"61c1afd0-b513-438f-94f1-fc0927716c3f"}],
       requestedDetails: null,
       ItemNameFilter: null,
-      RoastFilter: null,
-      OriginFilter: null,
-      FilteredList: null
     }
   }
 
@@ -39,7 +37,6 @@ export default class inventoryControl extends React.Component {
   }
 
   handleDetailsRequest = (id) => {
-    console.log(this.state.requestedDetails)
     const selectedItem = this.state.mainInventoryList.filter(item => item.id === id)[0]
     this.setState({requestedDetails: selectedItem, showForm: false})
   }
@@ -67,55 +64,34 @@ export default class inventoryControl extends React.Component {
     if (whichProperty === 'ItemName') {
       this.setState({ItemNameFilter: event.target.value})
     } 
-
-    if (whichProperty === 'beanRoast') {
-      this.setState({RoastFilter: event.target.value})
-    }
-
-    if (whichProperty === 'beanOrigin') {
-      this.setState({OriginFilter: event.target.value})
-    }
-    this.filterResults();
   }
 
   handleClearFiltersRequest = () => {
     this.setState({
       ItemNameFilter: null,
-      RoastFilter: null,
-      OriginFilter: null
     })
 
   }
 
-  filterResults = () => {
-    let filteredList = this.state.mainInventoryList;
-    if (this.state.ItemNameFilter != null) {
-      filteredList = filteredList.filter(item => item.Name.toLowerCase().includes(this.state.NameFilter.toLowerCase()));
-    }
-    if (this.state.RoastFilter!=null){
-      filteredList = filteredList.filter(item => item.Roast.toLowerCase().includes(this.state.RoastFilter.toLowerCase()));
-    }
-    this.setState({
-      FilteredList: filteredList
-    })
-  }
-
+ 
   render() {
+    let filteredResults = null;
+    if (this.state.ItemNameFilter != null) {
+      filteredResults = this.state.mainInventoryList.filter(item => item.Name.toLowerCase().includes(this.state.ItemNameFilter.toLowerCase()))
+    }
     return(
+
       <Container>
         <Row>
           <Col>
             <FilterList onFilterRequest={this.handleFilterRequest} onClearFiltersRequest={this.handleClearFiltersRequest}/>
-            <InventoryList inventoryList={this.state.FilteredList != null ? this.state.FilteredList : this.state.mainInventoryList} onDetailsRequest={this.handleDetailsRequest}/>
+            <InventoryList inventoryList={filteredResults != null ? filteredResults : this.state.mainInventoryList} onDetailsRequest={this.handleDetailsRequest}/>
           </Col>
           <Col>
             {this.state.showForm ? 
               <ItemManagement onSwapRequest={this.handleMiddleColumnSwap} onAddNewInventory = {this.handleAddNewInventory}/> 
               :
-              <ItemDetails onSwapRequest={this.handleMiddleColumnSwap} onUpdateRequest={this.handleUpdateRequest} requestedDetails={this.state.requestedDetails}/>} 
-          </Col>
-          <Col>
-            <h1>placeholder filters</h1>
+              <ItemDetails onCloseDetailsRequest={this.handleCloseDetailsRequest} onSwapRequest={this.handleMiddleColumnSwap} onUpdateRequest={this.handleUpdateRequest} requestedDetails={this.state.requestedDetails}/>} 
           </Col>
         
         

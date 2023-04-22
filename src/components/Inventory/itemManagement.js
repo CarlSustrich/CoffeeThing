@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {v4} from 'uuid';
+import PropTypes from "prop-types";
 
 export default function itemManagement(props) {
 
@@ -50,3 +51,9 @@ export default function itemManagement(props) {
     </>
   )
 }
+
+
+itemManagement.propTypes = {
+  onSwapRequest: PropTypes.func,
+  onAddNewInventory: PropTypes.func,
+};

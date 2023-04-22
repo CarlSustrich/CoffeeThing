@@ -1,3 +1,30 @@
+# Farmers Market Circuit
+
+#### By Carl Sustrich 4.21.23
+
+#### _A website for Ermagerd a cerfee sherp, a coffee shop that needs to track their available beans. The website allows the user to add new bags of beans, view details of existing bags, and reduce the available inventory when it is sold._
+
+## Technologies Used
+
+* _React_
+* _JSX_
+* _HTML/CSS_
+* _JavaScript_
+* _Node_
+
+# Component Diagram
+
+![ComponentDiagram](./src/img/componentDiagram.png)
+
+### Setup/Installation Requirements:
+
+* First, copy the git repository url and open a shell program & navigate to your machine's desktop
+* Clone the repository using the copied URL and the `git clone` command
+* In the shell program, navigate to the root directory of the newly created file called "farmersMarket"
+* Run the `npm install` command to install dependencies
+* After the installation updates, in the root directory type `npm run start` to start the program
+* If the web page doesn't open on its own, open a web browser (such as Google Chrome) and enter the following into the URL: `http://localhost:3000/`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +95,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Known Bugs
+
+* _No known issues_
+
+* Please reach out with any questions or concerns [eliot.lauren@gmail.com](eliot.lauren@gmail.com), [carl.sustrich@gmail.com](carl.sustrich@gmail.com)
+
+## License
+
+_[MIT](https://opensource.org/license/mit/)_
+
+Copyright (c) 2023 _Carl Sustrich_

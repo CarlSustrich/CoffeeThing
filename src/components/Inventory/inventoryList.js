@@ -2,6 +2,7 @@ import React from 'react';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Item from './inventoryItem';
+import PropTypes from "prop-types";
 import { ListGroupItem } from 'react-bootstrap';
 
 export default function inventoryList(props) {
@@ -28,3 +29,7 @@ export default function inventoryList(props) {
     </>
   )
 }
+inventoryList.propTypes = {
+  inventoryList: PropTypes.array,
+  onDetailsRequest: PropTypes.func,
+};

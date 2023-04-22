@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 export default function inventoryItem(props) {
   return (
@@ -10,4 +11,12 @@ export default function inventoryItem(props) {
         {props.Remaining && props.Remaining}
     </div>
   )
+}
+
+inventoryItem.propTypes ={
+  Name: PropTypes.string,
+  Origin: PropTypes.string,
+  Roast: PropTypes.number,
+  Price: PropTypes.string,
+  Remaining: PropTypes.number
 }

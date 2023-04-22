@@ -1,11 +1,8 @@
 import React from 'react';
-import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
-// import Filter from './filter';
-import { ListGroupItem } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
+import PropTypes from "prop-types";
 
 export default function filterList(props) {
   return (
@@ -29,7 +26,7 @@ export default function filterList(props) {
             </Form.Group>
             <Form.Group className="mb-3" controlId='beanRoast'>
               <Form.Label>Roast</Form.Label>
-              <Form.Control type="text"  placeholder="Feature Coming Soon" />
+              <Form.Control type="text"  placeholder="Feature Coming Soon" disabled/>
             </Form.Group>
             <br />
             <br />
@@ -40,4 +37,9 @@ export default function filterList(props) {
       </Accordion.Item>
     </Accordion>
   )
+}
+
+filterList.propTypes = {
+  onFilterRequest: PropTypes.func,
+  onClearFiltersRequest: PropTypes.func
 }
