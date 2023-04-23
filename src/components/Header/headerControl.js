@@ -25,7 +25,7 @@ export default class headerControl extends React.Component {
 
   tick() {
     this.setState({
-      date: new Date()
+      currentTime: new Date()
     });
   }
 
