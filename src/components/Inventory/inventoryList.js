@@ -14,9 +14,9 @@ export default function inventoryList(props) {
       <ListGroup as="ol" numbered>
         {props.inventoryList.map((element)=> 
           
-          <ListGroup.Item key={element.id} as='li' className="d-flex justify-content-between align-items-start"> 
+          <ListGroup.Item key={element.id} as='li' className="d-flex justify-content-between align-items-start" onClick={() => props.onDetailsRequest(element.id)}> 
             <Item 
-              detailsRequested = {props.onDetailsRequest}
+              // detailsRequested = {props.onDetailsRequest}
               Name = {element.Name}
               id={element.id}
             />

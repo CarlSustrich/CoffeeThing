@@ -70,6 +70,7 @@ export default class inventoryControl extends React.Component {
     this.setState({
       ItemNameFilter: null,
     })
+    document.getElementById('filterForm').reset();
 
   }
 

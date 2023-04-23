@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function inventoryItem(props) {
   return (
-    <div className="ms-2 me-auto" onClick = {() => props.detailsRequested(props.id)}>
+    <div className="ms-2 me-auto">
         {props.Name}
         {props.Origin && props.Origin}
         {props.Roast && props.Roast}

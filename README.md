@@ -100,7 +100,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 * _No known issues_
 
-* Please reach out with any questions or concerns [eliot.lauren@gmail.com](eliot.lauren@gmail.com), [carl.sustrich@gmail.com](carl.sustrich@gmail.com)
+* Please reach out with any questions or concerns [carl.sustrich@gmail.com](carl.sustrich@gmail.com)
 
 ## License
 

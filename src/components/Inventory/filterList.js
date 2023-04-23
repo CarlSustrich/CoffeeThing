@@ -12,7 +12,7 @@ export default function filterList(props) {
       <Accordion.Item eventKey='0'>
         <Accordion.Header>Filters</Accordion.Header>
         <Accordion.Body>
-          <form onChange={props.onFilterRequest}>
+          <form onChange={props.onFilterRequest} id='filterForm'>
             <Form.Group className="mb-3" controlId='ItemName' role='form'>
               <Form.Label>Bean Name</Form.Label>
               <Form.Control type="text" placeholder='ex Super Jitter Death Inducer' />

@@ -41,7 +41,8 @@ export default class headerControl extends React.Component {
       height: '30vh',
       width: '100vw',
       textAlign: 'center',
-      padding: '25px'
+      padding: '25px',
+      borderRadius: '15px'
     }
     const h3Styles={
       color: 'hsla(0, 0%, 100%, 0.8)',
@@ -59,7 +60,7 @@ export default class headerControl extends React.Component {
     return(
       <Container style={headerStyles}>
         <h1 style={h1Style}>ErMaGerd A Cerfee Sherp</h1>
-        <h3 style={h3Styles}>{this.state.currentTime.toLocaleTimeString()}</h3>
+        <h3 style={h3Styles}>Central Park, NY <br/>{this.state.currentTime.toLocaleTimeString('en-US', {timeZone: "America/New_York", hour: '2-digit', minute: '2-digit'})}</h3>
       </Container>
 
     )
